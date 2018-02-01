@@ -72,3 +72,16 @@ cms-cli push <release config>
 cms-cli watch <release config>
 - watches for local file changes and pushes to CMS (and force preview refresh if enabled)
 
+Use cases
+-----------------
+
+As an account user administrator,
+I want to add a basic auth login (of type wz-login)
+So that my team members can log in to help manage my sites.
+
+As an account user administrator,
+I want to create an access user on my account (or one of my child accounts)
+So that after my team members log in they have access to one or more accounts.
+
+Criteria: access user must be linked to at least one login.
+
