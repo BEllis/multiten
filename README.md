@@ -24,15 +24,19 @@ aggregateId - Shard Local ID (Used for references to/from entities inside the ag
 sequence - sequence number
 userId - The identity of the user that made this change.
 createdDateTime - The time the change was added.
+releaseConfigId - The release configuration to which this version was added.
+
+UNIQUE (aggregateId, releaseId)
 
 Each Shard
 
 shard_tenant
 shard_tenant_snapshot
+shard_tenant_log
 shard_tenant_setting
 shard_tenant_setting_snapshot
-shard_tenant_user
-shard_tenant_user_snapshot
+shard_security_user
+shard_security_user_snapshot
 shard_release_configuration
 shard_release_configuration_snapshot
 
