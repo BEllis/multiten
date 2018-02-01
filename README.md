@@ -28,17 +28,27 @@ releaseConfigId - The release configuration to which this version was added.
 
 UNIQUE (aggregateId, releaseId)
 
-Each Shard
+Each Shard (Backend)
 
 shard_tenant
 shard_tenant_snapshot
 shard_tenant_log
+shard_data
 shard_tenant_setting
 shard_tenant_setting_snapshot
 shard_security_user
 shard_security_user_snapshot
 shard_release_configuration
-shard_release_configuration_snapshot
+shard_release_configuration_log
+shard_release_configuration_changes (CUD + type + uuid + sequence)
+
+(frontend)
+frontend_releases
+release_xyz_info
+release_xyz_diff
+release_xyz_paths
+release_xyz_rules
+release_xyz_views
 
 Example module tables
 
@@ -52,3 +62,13 @@ cms_document_files - entity
 For moving/replicating, each module needs to,
 - perform writes to all shards
 - move records by UUID (shard ID may differ between shards)
+
+Git support
+
+cms.xml
+- links files with cms documents
+cms-cli push <release config>
+- pushes cms.xml changes to specified release condiguration 
+cms-cli watch <release config>
+- watches for local file changes and pushes to CMS (and force preview refresh if enabled)
+
